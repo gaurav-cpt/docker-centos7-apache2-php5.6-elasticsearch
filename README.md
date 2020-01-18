@@ -38,11 +38,12 @@
 <div>
   <h2>Summary</h2>  
   <pre>
-Created seperate files for centos and php under docker-files/ folder and making the centos as base image, Using port 6551 and 6552 its upto us to choose any open port.
-Overriding the httpd.conf file keeping inside docker-config/vhosts/ folder so if you want to customize the apache setting that we can define in this file, module re_write was not working so i added the below command and override the container configuration file.
+Created seperate files for centos and php under docker-files/ folder and making the centos as base image,
+Using port 6551 and 6552 its upto us to choose any open port.
+Overriding the httpd.conf file keeping inside docker-config/vhosts/ folder so if you want to customize the apache 
+setting that we can define in this file, module re_write was not working so i added the below command and override
+the container configuration file.
 Include conf.modules.d/*.conf
 LoadModule rewrite_module modules/mod_rewrite.so
-
-
   </pre>
 </div>
