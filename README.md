@@ -2,13 +2,13 @@
 <h2>Table of contents</h2>
 <div>
 <ul>
-  <li>Installation</li>
-  <li>Check container services and run the project</li>
-  <li>Logging & Debugging</li>
-  <li>Summary</li>
+  <li><a href="#installtion-docker">Installation</a></li>
+  <li><a href="#check-services-docker">Check container services and run the project</a></li>
+  <li><a href="#logging-debug-docker">Logging & Debugging</a></li>
+  <li><a href="#summary-docker">Summary</a></li>
  </ul>
 </div>
-<div>
+<div id="installtion-docker">
   <h2>Installation</h2>
   <ul>
     <li><a href="https://docs.docker.com/install/" target="_blank" >Install the docker first</a></li>
@@ -19,7 +19,7 @@
     <li>docker-compose up -d</li>
   </ul>
 </div>
-<div>
+<div id="check-services-docker">
   <h2>Check container services and run the project</h2>
   <ul>
     <li><b>docker ps</b> command will show the list of running images</li>
@@ -28,14 +28,14 @@
     <li>go to the browser and type <b>http://172.27.0.4</b> your apache page should be displayed </li>
   </ul>
 </div>
-<div>
+<div id="logging-debug-docker">
   <h2>Logging & Debugging</h2>
   <ul>
     <li>docker logs {CONTAINER_ID} command will display the specific error related to the container</li>
     <li>In case if elastic search service not up check the log, on my linux system it was stuck because of low virtual memory than i used "sudo sysctl -w vm.max_map_count=262144"</li>
   </ul>
 </div>
-<div>
+<div id="summary-docker">
   <h2>Summary</h2>  
   <pre>
 Created seperate files for centos and php under docker-files/ folder and making the centos as base image,
