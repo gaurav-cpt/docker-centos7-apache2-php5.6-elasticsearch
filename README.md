@@ -11,8 +11,8 @@
 <div>
   <h2>Installation</h2>
   <ul>
-    <li><a href="https://docs.docker.com/install/" target="__blank" >Install the docker first</a></li>
-    <li><a href="https://docs.docker.com/compose/install/" target="__blank">Install docker-compose</a></li>
+    <li><a href="https://docs.docker.com/install/" target="_blank" >Install the docker first</a></li>
+    <li><a href="https://docs.docker.com/compose/install/" target="_blank">Install docker-compose</a></li>
     <li>git clone https://github.com/gaurav-cpt/docker-centos7-apache2-php5.6-elasticsearch.git</li>
     <li>cd docker-centos7-apache2-php5.6-elasticsearch/</li>
     <li>docker-compose build</li>
