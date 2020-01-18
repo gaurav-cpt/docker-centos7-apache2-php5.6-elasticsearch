@@ -1,0 +1,50 @@
+version: "3.5"
+
+services:
+  centos7-service:
+    build: 
+      context: .
+      dockerfile: docker-files/Dockerfile.base
+    container_name: 'lr-centos-container'
+    networks:
+      - literature-review-newtwork
+    image: lr-centos7
+    restart: 'always'
+    ports:
+      - "6551:80"
+      - "443:443"
+    tty: true
+  php-apache-service:
+    build: 
+      context: .
+      dockerfile: docker-files/Dockerfile.php
+    container_name: 'php5.6-apache'
+    networks:
+      - literature-review-newtwork
+    restart: 'on-failure'
+    depends_on:
+      - centos7-service
+    env_file:
+      - docker-files/Docker.env
+    ports:
+      - "6552:80"
+    volumes:
+      - .:/var/www/html/literature-review
+    tty: true
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - literature-review-newtwork
+    ports:
+      - "6553:9200"
+networks:
+  literature-review-newtwork:
+    name: literature-review-net

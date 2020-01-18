@@ -1,0 +1,18 @@
+From rabbitmq:3-management-alpine
+MAINTAINER gaurav
+
+RUN apk add --update \
+    python python3 && \
+    pip3 install --upgrade pip setuptools
+RUN apk add net-tools
+RUN pip3 install requests pika
+RUN pip3 install colorama termcolor
+
+# Define environment variables.
+ENV RABBITMQ_USER guest
+ENV RABBITMQ_PASSWORD guest
+
+ADD ./docker-config/rabbitmq-init.sh /rabbitmq-init.sh
+# Define default command
+CMD ["/rabbitmq-init.sh"]
+
